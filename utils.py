@@ -1,3 +1,4 @@
+import os
 class Utils:
     def __init__(self):
         pass
@@ -5,44 +6,45 @@ class Utils:
     
     def printList(self, lista):
         # Encabeados
-        print("+----+------------------------------+")
-        print("| ID | Producto                     |")
-        print("+----+------------------------------+")
+        print("+----+------------------------------------+------------")
+        print("| ID | Producto                           |   Precio  |")
+        print("+----+------------------------------------+------------")
 
         
-        for i, producto in enumerate(lista, start=1):
-            print(f"| {i:2} | {producto:28} |")
+        for i, (nombre, precio) in enumerate(lista, start=1):
+            print(f"| {i:2} | {nombre:33} | {precio:11} |")
+
 
         # Final de la tabla 
-        print("+----+------------------------------+")
+        print("+----+------------------------------------+------------")
     
 
 
     #Envia la lista de los productos disponibles hasta el momento
     def getListProducts(self):
         return [
-            "Teléfono inteligente"[200],
-            "Laptop",
-            "Audífonos inalámbricos",
-            "Reloj inteligente",
-            "Teclado mecánico",
-            "Silla ergonómica",
-            "Monitor 4K",
-            "Disco duro externo",
-            "Cafetera automática",
-            "Smart TV",
-            "Aspiradora robot",
-            "Cámara de seguridad WiFi",
-            "Tableta gráfica",
-            "Altavoz Bluetooth",
-            "Router de alta velocidad",
-            "Batería portátil",
-            "Consola de videojuegos",
-            "Licuadora de alto rendimiento",
-            "Termo de acero inoxidable",
-            "Mochila impermeable"
+            ["Teléfono inteligente", 2989],
+            ["Laptop", 20000],
+            ["Audífonos inalámbricos", 400],
+            ["Reloj inteligente", 1590],
+            ["Teclado mecánico", 4580],
+            ["Silla ergonómica", 1500],
+            ["Monitor 4K", 7099],
+            ["Disco duro externo", 4500],
+            ["Cafetera automática", 10700],
+            ["Smart TV", 20599],
+            ["Aspiradora robot", 15852],
+            ["Cámara de seguridad WiFi", 10999],
+            ["Tableta gráfica", 6700],
+            ["Altavoz Bluetooth", 5645],
+            ["Router de alta velocidad", 1300],
+            ["Batería portátil", 4622],
+            ["Consola de videojuegos", 11300],
+            ["Licuadora de alto rendimiento", 7400],
+            ["Termo de acero inoxidable", 1200],
+            ["Mochila impermeable", 2460]
         ]
-    
+
     def showCardInTime(sel, cardlist):
        sel.printList(cardlist)
        
@@ -86,7 +88,7 @@ class Utils:
                 print("Por favor, ingresa un número válido.")
 
             is_continue = input("¿Continuar agregando? (y/n): ").strip().lower() == "y"
-            if not is_continue:
+            if is_continue != False:
                 return car_list  # Retorna la lista con los productos agregados
             
     
